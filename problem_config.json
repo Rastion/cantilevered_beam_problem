@@ -1,0 +1,49 @@
+{
+    "entry_point": "cantilevered_beam_problem:CantileveredBeamProblem",
+    "default_params": {},
+    "problem_type": "CantileveredBeam",
+    "description": "Minimize the volume of a cantilevered I-beam subjected to a tip load. The beam's volume is defined as V = (2*fh1*b1 + (H - 2*fh1)*b2) * L, where fh1 is selected from a discrete set of possible values. The design must satisfy constraints on bending stress (g1 ≤ 5000) and tip deflection (g2 ≤ 0.10).",
+    "keywords": [
+      "cantilevered beam",
+      "structural optimization",
+      "volume minimization",
+      "engineering design"
+    ],
+    "decision_variables": {
+      "H": {
+        "type": "float",
+        "range": [3.0, 7.0],
+        "description": "Overall height of the beam."
+      },
+      "h1": {
+        "type": "int",
+        "range": [0, 7],
+        "description": "Index for the flange height selected from the set [0.1, 0.26, 0.35, 0.5, 0.65, 0.75, 0.9, 1.0]."
+      },
+      "b1": {
+        "type": "float",
+        "range": [2.0, 12.0],
+        "description": "Width of the upper flange."
+      },
+      "b2": {
+        "type": "float",
+        "range": [0.1, 2.0],
+        "description": "Width of the web."
+      }
+    },
+    "objective": {
+      "type": "minimization",
+      "function": "Beam volume",
+      "description": "Minimize the beam volume V = (2*fh1*b1 + (H - 2*fh1)*b2)*L, subject to bending stress and deflection constraints (g1 ≤ 5000 and g2 ≤ 0.10)."
+    },
+    "solution_representation": "A list of four numbers: [H, h1, b1, b2], where H, b1, and b2 are continuous variables and h1 is an integer index selecting a flange height from a predefined set.",
+    "compatible_optimizers": [
+      "gradient_based",
+      "metaheuristic",
+      "particle_swarm",
+      "genetic_algorithm",
+      "simulated_annealing"
+    ],
+    "notes": "The cantilevered beam problem is a classical structural design optimization problem. The discrete decision h1 selects a flange height from a predefined list, and the objective is to minimize the beam volume while satisfying constraints on bending stress and deflection."
+  }
+  
