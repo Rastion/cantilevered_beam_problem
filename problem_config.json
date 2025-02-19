@@ -1,14 +1,9 @@
 {
     "entry_point": "cantilevered_beam_problem:CantileveredBeamProblem",
     "default_params": {},
-    "problem_type": "CantileveredBeam",
+    "problem_type": "Cantilevered Beam",
     "description": "Minimize the volume of a cantilevered I-beam subjected to a tip load. The beam's volume is defined as V = (2*fh1*b1 + (H - 2*fh1)*b2) * L, where fh1 is selected from a discrete set of possible values. The design must satisfy constraints on bending stress (g1 ≤ 5000) and tip deflection (g2 ≤ 0.10).",
-    "keywords": [
-      "cantilevered beam",
-      "structural optimization",
-      "volume minimization",
-      "engineering design"
-    ],
+    "keywords": ["cantilevered beam", "structural optimization", "engineering", "continuous", "optimization", "mathematical function"],
     "decision_variables": {
       "H": {
         "type": "float",
